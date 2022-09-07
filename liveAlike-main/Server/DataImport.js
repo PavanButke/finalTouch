@@ -1,5 +1,5 @@
 const express =  require('express');
-const User =  require("./Models/UserModel");
+const User =  require("./Models/userModel");
 const users =  require("./data/users");
 const Product =  require('./Models/productModel');
 const products =  require('./data/Products');

@@ -61,7 +61,7 @@ const OrderScreen = ({ match }) => {
   const [orders, setOrders] = useState([]);
 
   async function fetchOrders() {
-	const { data } = await axios.get('/list-orders');
+	const { data } = await axios.get('https://murtikar.herokuapp.com/list-orders');
 	setOrders(data);
   }
   useEffect(() => {
@@ -77,14 +77,14 @@ const OrderScreen = ({ match }) => {
 	script.onload = async () => {
 	  try {
 		setLoadingN(true);
-		const result = await axios.post('/create-order', {
+		const result = await axios.post('https://murtikar.herokuapp.com/create-order', {
 		  amount: orderAmount + '00',
 		});
 		console.log(orderAmount);
 		const { amount, id: order_id, currency } = result.data;
 		const {
 		  data: { key: razorpayKey },
-		} = await axios.get('/get-razorpay-key');
+		} = await axios.get('https://murtikar.herokuapp.com/get-razorpay-key');
 
 		const options = {
 		  key: razorpayKey,
@@ -94,7 +94,7 @@ const OrderScreen = ({ match }) => {
 		  description: 'example transaction',
 		  order_id: order_id,
 		  handler: async function (response) {
-			const result = await axios.post('/pay-order', {
+			const result = await axios.post('https://murtikar.herokuapp.com/pay-order', {
 			  amount: amount,
 			  razorpayPaymentId: response.razorpay_payment_id,
 			  razorpayOrderId: response.razorpay_order_id,
@@ -130,7 +130,7 @@ const OrderScreen = ({ match }) => {
 
   useEffect(() => {
     const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get("/api/config/paypal");
+      const { data: clientId } = await axios.get("https://murtikar.herokuapp.com/api/config/paypal");
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;

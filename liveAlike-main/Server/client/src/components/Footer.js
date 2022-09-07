@@ -4,6 +4,15 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="justify-content-center d-flex">
+     
+            <div className="col-md-6 d-flex align-items-center display-none">
+            <h6>  @Copyright </h6>
+            <span></span>
+            <h5>Developed By</h5>
+            <span></span>
+            <h4>   Pavan Butke</h4>
+            </div>
+            
         <div className="card-name">
           <img
             alt="mastercard"

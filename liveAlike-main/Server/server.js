@@ -95,9 +95,10 @@ app.get("/", (req, res) => {
   });
   
 
-  
-
-const PORT = process.env.PORT ||1000;
+  if (process.env.NODE_ENV = "production") {
+	app.use(express.static(" frontend-shoeshop/build"));
+  }
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`server run in port ${PORT}`));
 
 

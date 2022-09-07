@@ -11,7 +11,7 @@ import {
 
 export const listProduct = (keyword=" ", pagenumber=" ") => async (dispatch) => {
     try {
-        const { data } = await axios.get(`/api/products?keyword=${keyword}&pagenumber=${pagenumber}` );
+        const { data } = await axios.get(`https://murtikar.herokuapp.com/api/products?keyword=${keyword}&pagenumber=${pagenumber}` );
         dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
     } catch (error) {
         dispatch({
@@ -28,7 +28,7 @@ export const listProduct = (keyword=" ", pagenumber=" ") => async (dispatch) => 
 export const listProductDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST });
-        const { data } = await axios.get(`/api/products/${id}`);
+        const { data } = await axios.get(`https://murtikar.herokuapp.com/api/products/${id}`);
 
         dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
     } catch (error) {

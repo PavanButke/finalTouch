@@ -68,6 +68,10 @@ const Header = () => {
           <div className="mobile-header">
             <div className="container ">
               <div className="row ">
+              <div className="col-md-6 d-flex align-items-center display-none">
+              <p>Developed By</p>
+              <p>Pavan Butke</p>
+            </div>
                 <div className="col-6 d-flex align-items-center">
                   <Link className="navbar-brand" to="/">
                     <img alt="logo" src="/images/logo.png" />
@@ -124,7 +128,7 @@ const Header = () => {
               
                   <Link to="/cart" className="cart-mobile-icon">
                     <i className="fas fa-shopping-bag"></i>
-                    <span className="badge">4</span>
+                    <span className="badge">{cartItems.length}</span>
                   </Link>
                 </div>
                 <div className="col-12 d-flex align-items-center">
